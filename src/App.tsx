@@ -8,7 +8,7 @@ import Admin from './pages/Admin';
 
 function App() {
   return (
-    <div>
+    <div className='page'>
       <Routes>
         <Route path='/' element={<Login />} />
         <Route path='/register' element={<Register />} />

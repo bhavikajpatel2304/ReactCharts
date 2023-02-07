@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import Drawer from "../components/Drawer";
 
 function Dashboard() {
-  return (
-    <div>Dashboard</div>
-  )
+	return (
+		<div className="page-main">
+			<Drawer />
+			<div className="page-body">Dashboard</div>
+		</div>
+	);
 }
 
-export default Dashboard
+export default Dashboard;

@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
+import "@fontsource/alegreya-sans-sc"
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
