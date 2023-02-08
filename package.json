@@ -6,6 +6,7 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@expo-google-fonts/alegreya-sans-sc": "^0.2.2",
+    "@fontsource/alegreya-sans": "^4.5.11",
     "@fontsource/alegreya-sans-sc": "^4.5.11",
     "@mui/material": "^5.11.8",
     "@testing-library/jest-dom": "^5.16.5",

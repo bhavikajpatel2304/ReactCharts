@@ -96,3 +96,9 @@ body {
 	box-sizing: border-box;
   z-index: 1;
 }
+
+.dashboard-button {
+	background-image: linear-gradient(180deg,#d85907,#f06308,#f27321);
+	font-family: 'Alegreya Sans SC', sans-serif;
+	color: white;
+}
