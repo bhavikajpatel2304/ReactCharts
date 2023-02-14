@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 import "../styles/Table.css";
+import { CSVLink, CSVDownload } from "react-csv";
 
 const columns: GridColDef[] = [
   { field: 'id', headerName: 'ID' , width:50},
@@ -38,6 +39,7 @@ const rows = [
 export default function DataTable() {
   return (
     <div style={{ height: 400, width: '100%' }}>
+    <CSVLink className="btn btn-primary" target="_blank" filename={"Raw Data.csv"} data={rows}>Download me</CSVLink>
       <DataGrid
         rows={rows}
         columns={columns}
