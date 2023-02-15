@@ -34,19 +34,20 @@ const rows = [
   { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
   { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
   { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
+  { id: 10, lastName: 'Kalhan', firstName: 'Abhishek', age: 26 },
 ];
 
 export default function DataTable() {
   return (
-    <div style={{ height: 400, width: '100%' }}>
-    <CSVLink className="btn btn-primary" target="_blank" filename={"Raw Data.csv"} data={rows}>Download me</CSVLink>
+    <div style={{ height: 650, width: '100%' }}>
       <DataGrid
         rows={rows}
         columns={columns}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
+        pageSize={10}
+        rowsPerPageOptions={[10]}
         className="design"
       />
+      <CSVLink className="btn btn-primary" target="_blank" filename={"Raw Data.csv"} data={rows}>Download me</CSVLink>
     </div>
   );
 }
