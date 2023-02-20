@@ -1,6 +1,8 @@
 .design {
+    /* margin-top: 50px; */
     background-color: rgb(218, 218, 218);
-    color: azure;
+    color: rgb(32, 32, 32);
+    clear: both;
 }
 
 /* .btn {
@@ -28,4 +30,14 @@
 .btn {
     /* margin-left: 5px;
     margin-right: 5px; */
+}
+
+/* .csv-button {
+    float: right;
+} */
+
+.bug-btn {
+    margin-bottom: 15px;
+    float: right;
+    display: block;
 }

@@ -2,52 +2,58 @@ import * as React from 'react';
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 import "../styles/Table.css";
 import { CSVLink, CSVDownload } from "react-csv";
+import { useState, useEffect } from 'react';
+import Button from '@mui/material/Button';
 
 const columns: GridColDef[] = [
-  { field: 'id', headerName: 'ID' , width:50},
-  { field: 'firstName', headerName: 'First name' , width: 200},
-  { field: 'lastName', headerName: 'Last name', width: 130 },
+  // { field: '_id', headerName: 'ID' , width:150},
+  { field: 'title', headerName: 'Title' , width: 200},
+  { field: 'description', headerName: 'Description', width: 150 },
   {
-    field: 'age',
-    headerName: 'Age',
-    type: 'number',
+    field: 'status',
+    headerName: 'Status',
+    // type: 'number',
     width: 100,
   },
+  { field: 'assigned_to', headerName: 'Developer' , width:150},
   {
-    field: 'fullName',
-    headerName: 'Full name',
+    field: 'priority',
+    headerName: 'Priority',
     description: 'This column has a value getter and is not sortable.',
-    sortable: false,
+    // sortable: false,
     width: 160,
-    valueGetter: (params: GridValueGetterParams) =>
-      `${params.row.firstName || ''} ${params.row.lastName || ''}`,
+    // valueGetter: (params: GridValueGetterParams) =>
+    //   `${params.row.firstName || ''} ${params.row.lastName || ''}`,
   },
-];
-
-const rows = [
-  { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-  { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-  { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-  { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-  { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-  { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-  { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-  { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-  { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-  { id: 10, lastName: 'Kalhan', firstName: 'Abhishek', age: 26 },
+  { field: 'deadline', headerName: 'Deadline' , width:150},
 ];
 
 export default function DataTable() {
+  const [bugs, setBugs] = useState([]);
+useEffect(() => {
+  fetch('http://localhost:8089/abhishek/bug')
+     .then((response) => response.json())
+     .then((data) => {
+        console.log(data);
+        setBugs(data);
+     })
+     .catch((err) => {
+        console.log(err.message);
+     });
+}, []);
+
   return (
     <div style={{ height: 650, width: '100%' }}>
       <DataGrid
-        rows={rows}
+        rows={bugs}
+        getRowId={(row) => row._id}
         columns={columns}
-        pageSize={10}
-        rowsPerPageOptions={[10]}
+        pageSize={6}
+        rowsPerPageOptions={[6]}
         className="design"
       />
-      <CSVLink className="btn btn-primary" target="_blank" filename={"Raw Data.csv"} data={rows}>Download me</CSVLink>
+      {/* <Button variant="contained" className="bug-btn">New Bug</Button> */}
+      <CSVLink className="btn btn-primary csv-button" target="_blank" filename={"Raw Data.csv"} data={bugs}>Download me</CSVLink>
     </div>
   );
 }
