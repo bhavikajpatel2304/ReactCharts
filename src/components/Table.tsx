@@ -7,8 +7,8 @@ import Button from '@mui/material/Button';
 
 const columns: GridColDef[] = [
   // { field: '_id', headerName: 'ID' , width:150},
-  { field: 'title', headerName: 'Title' , width: 200},
-  { field: 'description', headerName: 'Description', width: 150 },
+  { field: 'title', headerName: 'Title' , width: 200, editable: true},
+  { field: 'description', headerName: 'Description', width: 300, editable: true },
   {
     field: 'status',
     headerName: 'Status',
@@ -45,14 +45,14 @@ useEffect(() => {
   return (
     <div style={{ height: 650, width: '100%' }}>
       <DataGrid
+      
         rows={bugs}
         getRowId={(row) => row._id}
         columns={columns}
-        pageSize={6}
-        rowsPerPageOptions={[6]}
+        pageSize={10}
+        rowsPerPageOptions={[10]}
         className="design"
       />
-      {/* <Button variant="contained" className="bug-btn">New Bug</Button> */}
       <CSVLink className="btn btn-primary csv-button" target="_blank" filename={"Raw Data.csv"} data={bugs}>Download me</CSVLink>
     </div>
   );
