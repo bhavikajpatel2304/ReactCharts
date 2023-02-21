@@ -20,7 +20,7 @@ function Login() {
                     <span>We don't share your email with anyone.</span>
                     <input id="password" type="password" required placeholder="Password"/>
                     <a href="#">Forgot your password?</a>
-                    <button>Identify Me</button>
+                    <button className="login">Identify Me</button>
                 </form>
             </div>
         </div>
